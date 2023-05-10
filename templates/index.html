@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta name="author" content="Benjamin Antonio">
+    <meta name="description" content="User Language Level Score Predictor">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULLSP</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+ <div>
+	<h1>USER LANGUAGE LEVEL PREDICTOR</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('home')}}" method="post">
+        <label>Reading Score (0 - 1)</label><br>
+    	<input type="text" name="Reading_Score" required="required" />
+        <label>Listening Score (0 - 1)</label><br>
+        <input type="text" name="Listening_Score" required="required" />
+        <label>Speaking Score (0 - 1)</label><br>
+		<input type="text" name="Speaking_Score" required="required" />
+        <label>Writing Score (0 - 1)</label><br>
+		<input type="text" name="Writing_Score" required="required" />
+
+        <button type="submit" class="button">Predict</button>
+    </form>
+     <br>
+        <p>Language Level: {{prediction}}</p>
+     <br>
+     <p>Language Level: 1 - Beginner</p>
+     <p>Language Level: 2 - Intermediate</p>
+     <p>Language Level: 3 - Advanced</p>
+ </div>
+</body>
+</html>

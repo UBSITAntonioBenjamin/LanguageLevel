@@ -1,0 +1,2 @@
+# 6. Export the trained model
+joblib.dump(clf, 'trained_model.joblib')

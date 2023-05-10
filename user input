@@ -1,0 +1,22 @@
+# Prompt the user to enter their language scores
+reading = float(input("Enter your reading score: "))
+listening = float(input("Enter your listening score: "))
+speaking = float(input("Enter your speaking score: "))
+writing = float(input("Enter your writing score: "))
+
+# Create a DataFrame with the user's scores
+user_scores = pd.DataFrame({
+    'Reading': [reading],
+    'Listening': [listening],
+    'Speaking': [speaking],
+    'Writing': [writing]
+})
+
+# Encode the user's scores as numeric
+user_scores = pd.get_dummies(user_scores)
+
+# Make a prediction using the trained model
+user_level = clf.predict(user_scores)[0]
+
+# Print the predicted language level
+print("Your predicted user language level is:", user_level)
